@@ -32,8 +32,8 @@ const Pools = seq.define('pools', {
     count: { type: Sequelize.INTEGER, defaultValue: 0 },
     active: { type: Sequelize.BOOLEAN, defaultValue: true },
     // formula: { type: Sequelize.INTEGER, defaultValue: 0 },
-    userid: Sequelize.INTEGER,
-    guildid: Sequelize.INTEGER
+    userid: Sequelize.STRING,
+    guildid: Sequelize.STRING
 });
 
 Pools.sync();
