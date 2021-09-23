@@ -6,12 +6,21 @@ const { Client, Intents, Collection } = require('discord.js');
 
 dotenv.config();
 
-const seq = new Sequelize('database', 'user', 'password', {
-    host: 'localhost',
-    dialect: 'sqlite',
-    logging: false,
-    storage: 'database.sqlite'
-});
+let seq = null
+
+if (process.env.DATABASE_URL) {
+    seq = new Sequelize(process.env.DATABASE_URL,
+        {
+            dialect: 'postgres'
+        });
+} else {
+    seq = new Sequelize('database', 'user', 'password', {
+        host: 'localhost',
+        dialect: 'sqlite',
+        logging: false,
+        storage: 'database.sqlite'
+    });
+}
 
 const Pools = seq.define('pools', {
     name: { type: Sequelize.STRING, defaultValue: 'Tension Pool', allowNull: false },
