@@ -2,3 +2,4 @@
 node_modules
 disabled-commands
 *.sqlite
+*.code-workspace
