@@ -2,6 +2,9 @@
   "name": "tensionpool",
   "version": "0.1.0",
   "description": "Tension pool based on the concept invented by TheAngryGm",
+  "engines": {
+    "node": "16.x"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

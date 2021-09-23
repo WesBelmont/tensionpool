@@ -9,10 +9,7 @@ dotenv.config();
 let seq = null
 
 if (process.env.DATABASE_URL) {
-    seq = new Sequelize(process.env.DATABASE_URL,
-        {
-            dialect: 'postgres'
-        });
+    seq = new Sequelize(process.env.DATABASE_URL);
 } else {
     seq = new Sequelize('database', 'user', 'password', {
         host: 'localhost',
