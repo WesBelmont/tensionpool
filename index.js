@@ -9,7 +9,15 @@ dotenv.config();
 let seq = null
 
 if (process.env.DATABASE_URL) {
-    seq = new Sequelize(process.env.DATABASE_URL);
+    seq = new Sequelize(process.env.DATABASE_URL, {
+        ssl: true,
+        dialectOptions: {
+            ssl: {
+                require: true,
+                rejectUnauthorized: false
+            }
+        }
+    });
 } else {
     seq = new Sequelize('database', 'user', 'password', {
         host: 'localhost',
